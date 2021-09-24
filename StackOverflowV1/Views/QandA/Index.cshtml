@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Stack Overflow Rocket Edition</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Title</th>
+        <th>Detail</th>
+        <th>Posted</th>
+        <th>Category</th>
+        <th>Tags</th>
+        <th>Status</th>
+        <th></th>
+        </tr>
+    </thead>
+
+    <tbody >
+
+        @foreach (Questions Question in Model)
+            {
+                <tr>
+                    <td>@Question.ID</td>
+                    <td>@Question.Username</td>
+                    <td>@Question.Title</td>
+                    <td>@Question.Detail</td>
+                    <td>@Question.Posted</td>
+                    <td>@Question.Category</td>
+                    <td>@Question.Tags</td>
+                    <td>@Question.Status</td>
+                    <td>
+                        <a asp-action="EditQuestion" asp-route-ID="@Question.ID" class="btn btn-secondary">Edit</a>
+                      
+                        <a asp-action="CloseQuestion"  asp-route-ID="@Question.ID"class="btn btn-danger">Delete</a>
+                    </td>
+                 
+
+                </tr>
+            }
+
+    </tbody>
+
+
+</table>
+
+
+<a class="btn btn-primary btn-lg">Ask a question!</a>
